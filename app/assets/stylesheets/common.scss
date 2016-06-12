@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+}
+
+.orange {
+  color: rgb(255,164,15);
+}
+
+.border-orange {
+  border: 1px solid orange;
+  border-radius: 10px;
+}
+
+.font-abridgement {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+a.white {
+  color: white;
+  text-decoration: none;
+  &:hover {
+    color: white;
+  }
+  &:visited {
+    color: white;
+  }
+}
+
+a.orange {
+  color: orange;
+  text-decoration: none;
+  &:hover {
+    color: orange;
+  }
+  &:visited {
+    color: orange;
+  }
+}
+
+a.black {
+  color: #666;
+  text-decoration: none;
+  &:hover {
+    color: #666;
+  }
+  &:visited {
+    color: #666;
+  }
+}
+
+.main-content {
+  margin-top: 40px;
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.contents {
+  margin-top: 30px;
+  .left-content {
+    width: 80%;
+    float: left;
+  }
+  .right-content {
+    width: 20%;
+    float: right;
+  }
+}
+
+.file {
+  margin: 20px auto 0;
+  border: 1px solid orange;
+  border-radius: 10px;
+  height: 40px;
+  width: 200px;
+  line-height: 40px;
+  font-size: 30px;
+  input {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 64.0625em) {
+  .contents {
+    .left-content, .right-content {
+      float: none;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  birthdate: 2016-01-27
+  weight: 1
+  sex: 1
+  free_comment: MyText
+
+two:
+  birthdate: 2016-01-27
+  weight: 1
+  sex: 1
+  free_comment: MyText

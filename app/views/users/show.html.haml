@@ -1,0 +1,31 @@
+.user-page
+  .panel.clearfix{ style: 'background-color: #FDEADA;' }
+    .row
+      .user-avatar= image_tag @user.avatar.url
+      .user-tabs
+        %h5 #{@user.nickname} さん
+        %ul.button-group
+          %li
+            = link_to '写真一覧', user_path(@user), class: 'button'
+          %li
+            = link_to 'ペット情報', user_pets_path(@user), class: 'button'
+          - if @user == current_user
+            %li
+              = link_to 'MyPetリスト', mypet_user_pets_path(@user), class: 'button'
+.contents.clearfix
+  .left-content
+    .tabs-content
+      #user-article-panel.content.active
+        = render partial: 'articles/article', collection: @articles
+  .right-content.user-info
+    - if @user.avatar.present?
+      .avatar{ style: "background-image: url(#{@user.avatar.url})"}
+    - else
+      .avatar{ style: "background-image: url(#{asset_path('no-image.png')})"}
+    - if @user.is_?(current_user)
+      %p.user-name
+        [
+        = link_to 'アイコンを変更', edit_user_path(@user)
+        ]
+    %p.orange.user-name= @user.nickname
+    %p.user-comment= @user.profile

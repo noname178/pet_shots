@@ -1,0 +1,65 @@
+.user-page
+  .panel.clearfix{ style: 'background-color: #FDEADA;' }
+    .row
+      .user-avatar
+      .user-tabs
+        %h5 #{@user.nickname} さん
+        %ul.button-group
+          %li
+            = link_to '写真一覧', user_path(@user), class: 'button'
+          %li
+            = link_to 'ペット情報', user_pets_path(@user), class: 'button'
+          - if @user == current_user
+            %li
+              = link_to 'MyPetリスト', mypet_user_pets_path(@user), class: 'button'
+  .row
+    %h4 プロフィール設定
+  = nested_form_for @user do |f|
+    .edit-user
+      .row.edit-part.border-bottom
+        .large-2.columns
+          %h5.orange ユーザー設定
+        .large-4.columns
+          .avatar
+            %label{ for: 'avatar' }
+              = image_tag @user.avatar.url, id: 'preview-avatar'
+              = f.file_field :avatar, id: 'avatar', style: 'display: none;'
+        .large-6.columns
+          .field.row
+            .large-6.columns
+              = f.label 'ニックネーム：'
+            .large-6.columns
+              = f.text_field :nickname
+          .field.row
+            .large-6.columns
+              = f.label 'プロフィール：'
+            .large-6.columns
+              = f.text_area :profile, size: '4x6'
+      = f.fields_for :pets, f.object.pets do |p|
+        .row.edit-part.border-bottom
+          .large-2.columns
+            %h5.orange Pet情報
+          .large-4.columns
+            .avatar
+              %label{ for: "file#{f.object.pets.index(p.object)}" }
+                - if p.object.thumbnail.present?
+                  = image_tag p.object.thumbnail, id: "preview-file#{f.object.pets.index(p.object)}"
+                - else
+                  = image_tag 'camera.png', id: "preview-file#{f.object.pets.index(p.object)}"
+                = p.file_field :thumbnail, id: "file#{f.object.pets.index(p.object)}", style: 'display: none;'
+          .large-6.columns
+            .field.row
+              .large-6.columns
+                = p.label 'name：'
+              .large-6.columns
+                = p.text_field :name
+            .field.row
+              .large-6.columns
+                = p.label 'プロフィール：'
+              .large-6.columns
+                = p.text_area :profile, size: '4x6'
+      = f.link_to_add :pets, class: 'row edit-part plus-icon', style: 'width: 2%' do
+        %i.fa.fa-plus.add-form-icon
+      .row.actions
+        .small-1.small-centered.columns
+          = f.submit '保存', class: 'submit-btn border-orange'

@@ -1,0 +1,7 @@
+.comment
+  %span.user-name
+    = link_to comment.user.nickname, user_path(comment.user), class: 'orange'
+    ：
+  = comment.text
+  - if user_signed_in? && comment.user.id == current_user.id
+    %span.comment-action= link_to '削除', comment_path(comment), method: :delete, data: { confirm: '本当に削除しますか？' }, remote: true

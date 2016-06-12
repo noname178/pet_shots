@@ -1,0 +1,11 @@
+.row.pet-index
+  - if pet.thumbnail.present?
+    .small-3.columns.pet-thumbnail{ style: "background-image: url(#{pet.thumbnail}); height: 200px;" }
+  - else
+    .small-3.columns.pet-thumbnail{ style: "background-image: url(#{asset_path('no-image.png')}); height: 200px;" }
+  .small-9.columns.pet-info{ style: 'height: 200px;' }
+    %h3
+      = pet.name
+      = link_to '削除', pet_path(pet), method: :delete, data: { confirm: '本当に削除しますか？' }, style: 'font-size: 12px;'
+    .profile
+      = pet.profile

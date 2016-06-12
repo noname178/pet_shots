@@ -1,0 +1,33 @@
+.row.main-content
+  .large-8.columns
+    %h3.subheader.user-name
+      %span= link_to @article.user.nickname, user_path(@article.user), class: 'orange'
+      さん
+    = image_tag @article.image.name, class: 'article-image'
+    %ul.tag-lists.article-tags.orange-tag
+      = render partial: 'articles/tag', collection: @tags
+    %p.article-description= @article.description
+    .comment-box
+      .comment-list#comment-list
+        - if @article.comments.present?
+          = render partial: 'articles/comments/comment', collection: @comments
+      %h4#comments-count
+        = image_tag 'nikukyu.png'
+        コメントする
+      .comment-form
+        = form_for [@article, @comment], remote: true do |f|
+          = f.text_area :text, id: 'input-comment'
+          .actions
+            = f.submit '投稿'
+  .large-4.columns
+    .sub-images.clearfix
+      - @articles.each do |article|
+        .sub-image{ style: "background-image: url(#{article.image.name});" }
+          = link_to '', article_path(article)
+    .like-article.clearfix
+      %h4 この写真について
+      .like-btn#like-btn
+        = render partial: 'likes/btn'
+      %p
+        %span#likes-count= @article.likes.count
+        イイネ！

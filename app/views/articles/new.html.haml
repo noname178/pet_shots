@@ -1,0 +1,40 @@
+.row.contents
+  %h1.subheader 写真をアップロード
+  = form_for @article do |f|
+    .row
+      .large-5.columns.image-field
+        = f.fields_for :image, @article.image || Article.new do |i|
+          - if @article.image.present?
+            = image_tag @article.image.url, id: 'preview-image'
+          - else
+            = image_tag 'camera.png', id: 'preview-image'
+          %label{ for: 'image', class: 'file' }
+            写真を選択
+            = i.file_field :name, id: 'image'
+      .large-7.columns
+        .articles-inform
+          .field.row
+            .small-4.columns
+              = f.label 'タイトル'
+            .small-8.columns
+              = f.text_field :title
+          .field.row
+            .small-4.columns
+              = f.label 'ひとこと'
+            .small-8.columns
+              = f.text_field :description
+          .field.row
+            .small-4.columns
+              %label{ for: 'article-tags' }
+                %span タグ
+            .small-8.columns
+              %ul#article-tags
+      .small-5.small-centered.article-submit.clearfix
+        .cancel
+          %label{ for: 'cancel' }
+            キャンセル
+            = button_to 'キャンセル', :back, id: 'cancel'
+        .upload
+          %label{ for: 'upload' }
+            アップロード
+            = f.submit 'アップロード', id: 'upload'

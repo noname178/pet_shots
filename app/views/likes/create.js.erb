@@ -1,0 +1,6 @@
+$('#like-btn').html(
+  '<%= j(render partial: 'likes/btn') %>'
+);
+$('#likes-count').html(
+  '<%= @article.likes_count %>'
+);

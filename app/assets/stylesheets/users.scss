@@ -1,0 +1,161 @@
+.user-page {
+
+  .user-avatar {
+    float: left;
+    margin-right: 30px;
+    img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  .user-tabs {
+    float: left;
+
+    h5 {
+      margin-bottom: 20px;
+    }
+
+    .tabs li {
+      margin: 0 20px;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+
+  img {
+    max-width: 200px;
+    max-height: 200px;
+  }
+}
+
+.user-info {
+
+
+  .user-name {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .user-comment {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+
+  img {
+    max-height: 40px;
+  }
+}
+
+p {
+  text-align: center;
+  margin-top: -30px;
+  img {
+    max-height: 80px;
+  }
+}
+
+.sign-content, .edit-user, .articles-inform {
+  .actions .submit-btn {
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: none;
+    height: 40px;
+    cursor: pointer;
+    outline: none;
+    padding: 0 10px;
+  }
+
+  .field {
+    margin: 10px 20px;
+
+    .center-label {
+      height: 100%;
+    }
+
+    label {
+      font-size: 20px;
+    }
+
+    input, textarea, ul {
+      border: 1px solid orange;
+      box-shadow: none;
+    }
+
+    ul {
+      position: relative;
+      margin-bottom: 16px;
+      height: 37px;
+      overflow: auto;
+      li {
+        height: 30px;
+        line-height: 37px;
+        &.tagit-choice {
+          background-color: rgb(255,206,151);
+          border-color: orange;
+        }
+        span {
+          vertical-align: top;
+        }
+      }
+      input {
+        position: absolute;
+        top: 0;
+      }
+    }
+  }
+}
+
+.edit-user {
+  .edit-part {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    h5 {
+      margin-left: 10px;
+      font-size: 20px;
+    }
+  }
+  h4 {
+    margin-bottom: 20px;
+  }
+  .border-bottom {
+    border-bottom: 2px solid orange;
+  }
+}
+
+.sign-content {
+  padding: 40px;
+  margin: 40px 20px;
+  background-color: white;
+}
+
+.sign-panel {
+  background-image: image-url('background.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+
+.plus-icon {
+  display: block;
+  margin: 20px auto;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 30px;
+}

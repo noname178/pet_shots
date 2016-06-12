@@ -1,0 +1,35 @@
+.row
+  .large-9.large-centered.columns
+    %ul.tabs{ class: 'tab-lists', id: 'article-tabs', "data-tab" => "" , "data-controller": "#{controller.controller_name}", "data-action": "#{controller.action_name}"}
+      %li.tab-title.active.popular
+        = link_to 'Popular', articles_popular_index_path
+      %li.tab-title.recent
+        = link_to 'Recent', articles_recent_index_path
+      %li.tab-title.tags
+        = link_to 'Tags', tags_path
+.tabs-content{ style: 'margin: 0 10px;' }
+  #panel.content.active
+    - if controller.controller_name == 'tags' && controller.action_name == 'index'
+      .row
+        .tag-lists.orange-tag.top-tags
+          = render partial: 'articles/tag', collection: @tags
+    - else
+      = render partial: 'articles/article', collection: @articles
+
+:javascript
+  $(document).on('ready page:load', function(){
+    var tabList = $('#article-tabs'),
+        controller = tabList.data('controller'),
+        action = tabList.data('action');
+    tabList.find('li').removeClass('active');
+    if(controller == 'popular') {
+      tabList.find('.popular').addClass('active');
+    } else if(controller == 'recent') {
+      tabList.find('.recent').addClass('active');
+    } else if(controller == 'tags' && action == 'index') {
+      tabList.find('.tags').addClass('active');
+    } else if(controller == 'tags' && action == 'show') {
+    } else {
+      tabList.find('.popular').addClass('active');
+    }
+  });

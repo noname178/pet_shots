@@ -1,0 +1,38 @@
+.pet-index {
+  .pet-thumbnail {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+  }
+  .pet-info {
+    h3 {
+      margin: 10px 0 20px;
+    }
+    .profile {
+      font-size: 24px;
+    }
+  }
+}
+
+.mypet {
+  margin: 0 0 20px 10px;
+  width: 30%;
+  float: left;
+  .thumbnail {
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 200px;
+  }
+  .pet-name {
+    text-align: center;
+  }
+  .pet-information {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+@media only screen and (max-width: 64.0625em) {
+}

@@ -1,0 +1,30 @@
+.comment-box {
+  h4 {
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  .comment-list {
+    .comment {
+      margin: 20px 0;
+    }
+  }
+  .comment-form {
+    textarea {
+      border: 1px solid orange;
+      border-radius: 30px;
+      line-height: 1.5em;
+      height: 7em;
+      resize: none;
+    }
+    .actions {
+      text-align: right;
+      input {
+        background-color: white;
+        border: 1px solid orange;
+        border-radius: 10px;
+      }
+    }
+  }
+}

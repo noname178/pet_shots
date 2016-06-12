@@ -1,0 +1,31 @@
+.sign-panel
+  .row
+    .large-8.large-centered.columns
+      .sign-content.border-orange
+        %h2= image_tag 'PETSHOT_logo.png'
+        %p= image_tag 'camera.png'
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          .field.row
+            .small-5.columns
+              = f.label 'メールアドレス：'
+            .small-7.columns
+              = f.email_field :email, autofocus: true
+          .field.row
+            .small-5.columns
+              = f.label 'ニックネーム：'
+            .small-7.columns
+              = f.text_field :nickname
+          .field.row
+            .small-5.columns
+              = f.label 'パスワード：'
+            .small-7.columns
+              = f.password_field :password, autocomplete: "off"
+          .field.row
+            .small-5.columns
+              = f.label 'パスワード確認：'
+            .small-7.columns
+              = f.password_field :password_confirmation, autocomplete: "off"
+          .actions.row
+            .small-2.small-centered.columns
+              = f.submit "新規登録", class: 'submit-btn border-orange'

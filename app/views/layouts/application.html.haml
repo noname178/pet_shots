@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title PetShot
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    = render partial: 'common/header'
+    - if notice.present?
+      .alert-box.success.radius{"aria-live" => "assertive", "data-alert" => "", :role => "alertdialog", :tabindex => "0"}
+        = notice
+        %button.close{"aria-label" => "Close Alert", :tabindex => "0"} &#215;
+    - elsif alert.present?
+      .alert-box.warning.radius{"aria-live" => "assertive", "data-alert" => "", :role => "alertdialog", :tabindex => "1"}
+        = alert
+        %button.close{"aria-label" => "Close Alert", :tabindex => "1"} &#215;
+    = yield
+    = render partial: 'common/footer'

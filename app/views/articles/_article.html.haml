@@ -1,0 +1,8 @@
+.pet-thumbnail
+  = link_to article_path(article), class: 'white' do
+    = image_tag article.image.name
+    %p.font-abridgement
+      = article.title
+      %br/
+      by
+      %span= link_to article.user.nickname, '#', class: 'white'

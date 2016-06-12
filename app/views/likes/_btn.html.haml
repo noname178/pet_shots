@@ -1,0 +1,4 @@
+- if user_signed_in? && current_user.not_liked?(@article)
+  = link_to (image_tag 'nikukyu.png'), likes_path(article_id: @article.id), remote: true, method: :post
+- else
+  = link_to (image_tag 'nikukyu.png'), like_path(@article), remote: true, method: :delete

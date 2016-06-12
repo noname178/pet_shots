@@ -1,0 +1,19 @@
+.sign-panel
+  .row
+    .large-8.large-centered.columns
+      .sign-content.border-orange
+        %h2= image_tag 'PETSHOT_logo.png'
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .field.row
+            .small-5.columns
+              = f.label 'メールアドレス：'
+            .small-7.columns
+              = f.email_field :email, autofocus: true
+          .field.row
+            .small-5.columns
+              = f.label 'パスワード：'
+            .small-7.columns
+              = f.password_field :password, autocomplete: "off"
+          .actions.row.clearfix
+            .small-2.small-centered.columns
+              = f.submit "ログイン", class: 'submit-btn border-orange'

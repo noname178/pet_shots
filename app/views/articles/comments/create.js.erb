@@ -1,0 +1,4 @@
+$('#input-comment').val('');
+$('#comment-list').html(
+  '<%= j(render partial: 'articles/comments/comment', collection: @comments) %>'
+);
